@@ -28,12 +28,14 @@ W = round((maxNum - minNum)/C , d)
 rangeTable = [0 for _ in range(C + 1)]
 freqTable = [0 for _ in range(C)]
 
+rangeTable[0] = minNum
+
 # Calcula los rangos del histograma
 for i in range(1, C):
-    rangeTable[i] = round(rangeTable[i - 1] + W, d)
+    rangeTable[i] = round(rangeTable[i - 1] + W + (1/(10 ** d)), d)
 
-rangeTable[0] = minNum
-rangeTable[C] = maxNum + (1/10 ** d)
+
+rangeTable[C] = maxNum + (1/(10 ** d))
 
 # Se cuenta la frecuencia de los elementos en los rangos 
 j = 1
